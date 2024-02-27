@@ -16,7 +16,7 @@ function solution(X, Y) {
     
     answer = common.sort().reverse().join("")
     if(answer.length == 0) return "-1"
-    if(Array.from(new Set(common)).join('') == "0") return "0"
+    if(Number(answer) == 0) return "0"
     
     return answer;
 }
