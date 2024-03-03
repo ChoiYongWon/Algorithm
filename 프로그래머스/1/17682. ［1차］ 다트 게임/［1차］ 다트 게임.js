@@ -24,6 +24,7 @@ function preprocessing(dartResult){
     let bonus = []
     let option = []
     
+    // 3번의 기회로 구성
     for(let i=0;i<3;i++){
         score[i] = getScore(dart_arr)
         bonus[i] = getBonus(dart_arr)
