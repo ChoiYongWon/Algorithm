@@ -8,6 +8,9 @@ function solution(prices) {
     
     
     while(price_length > 0){
+        
+        // const p = price.shift()
+        // shift의 시간 복잡도는 O(N)이다 -> 이거 때문에 효율성 걸림;;
         const p = price[price.length - price_length--]
         
         if(stack.length == 0) stack.push(p)
@@ -29,6 +32,8 @@ function solution(prices) {
         }
     }
     
+    
+    // stack에 남은 주식들 prices 길이에서 원래 주식 index만큼 빼줌
     
     for(let i in stack){
         answer[stack[i][1]] = prices.length - 1 - stack[i][1]
