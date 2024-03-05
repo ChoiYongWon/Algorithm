@@ -6,6 +6,8 @@ function solution(players, callings) {
     let player = {}
     let answer = []
     
+    
+    // 플레이어 및 순위 객체화
     players.forEach((name, index) => {
         rank[name] = index+1;
         player[index+1] = name
