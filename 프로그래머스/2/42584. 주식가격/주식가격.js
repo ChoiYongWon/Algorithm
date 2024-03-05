@@ -33,8 +33,7 @@ function solution(prices) {
     }
     
     
-    // stack에 남은 주식들 prices 길이에서 원래 주식 index만큼 빼줌
-    
+    // stack에 남은 주식들 prices 길이에서 원래 주식 index만큼 빼줌 
     for(let i in stack){
         answer[stack[i][1]] = prices.length - 1 - stack[i][1]
     }
