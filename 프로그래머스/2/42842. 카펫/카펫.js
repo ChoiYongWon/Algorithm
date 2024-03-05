@@ -1,6 +1,8 @@
 // 1줄만 갈색이라 해서 다행이라 생각중
 // 약수 전부 구해서 대조
 
+// 노란색 범위의 공식을 찾는 방식을 생각못했네 ㅅㅂ
+
 function solution(brown, yellow) {
     var answer = [];
     
