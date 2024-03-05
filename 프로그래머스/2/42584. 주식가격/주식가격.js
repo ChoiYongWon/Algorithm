@@ -1,4 +1,4 @@
-// 주식의 index 무조건 필요!!!!!!
+// 주식의 index 무조건 필요!!!!!! 
 
 function solution(prices) {
     var answer = [];
@@ -13,25 +13,25 @@ function solution(prices) {
         // shift의 시간 복잡도는 O(N)이다 -> 이거 때문에 효율성 걸림;;
         const p = price[price.length - price_length--]
         
-        if(stack.length == 0) stack.push(p)
-        else{
-            
-            // 주식 유지
-            if(stack[stack.length - 1][0] <= p[0]) stack.push(p)
-            
-            // 주식 유지 못함
-            else {
-                // stack의 맨 위가 p보다 클 때
-                while(stack.length > 0 && stack[stack.length-1][0] > p[0]){
-                    let top = stack.pop() // top 없앰
-                    answer[top[1]] = p[1] - top[1] // p의 index에서 top의 index를 뺀 값
-                }
-                stack.push(p)
-                                
-            }
+        if(stack.length == 0) {
+            stack.push(p)
+            continue
         }
+            
+        // 주식 유지
+        if(stack[stack.length - 1][0] <= p[0]) {
+            stack.push(p)
+            continue
+        }
+
+        // 주식 유지 못함
+        // stack의 맨 위가 p보다 클 때
+        while(stack.length > 0 && stack[stack.length-1][0] > p[0]){
+            let top = stack.pop() // top 없앰
+            answer[top[1]] = p[1] - top[1] // p의 index에서 top의 index를 뺀 값
+        }
+        stack.push(p)
     }
-    
     
     // stack에 남은 주식들 prices 길이에서 원래 주식 index만큼 빼줌 
     for(let i in stack){
