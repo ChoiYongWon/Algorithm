@@ -1,5 +1,5 @@
 // 1줄만 갈색이라 해서 다행이라 생각중
-// 
+// 약수 전부 구해서 대조
 
 function solution(brown, yellow) {
     var answer = [];
