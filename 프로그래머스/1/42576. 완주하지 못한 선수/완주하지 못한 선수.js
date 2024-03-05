@@ -1,4 +1,4 @@
-// 해시는 거의 객체 사용ㅋ
+// 해시는 거의 객체 사용
 
 function solution(participant, completion) {
     
