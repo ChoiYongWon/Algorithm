@@ -1,13 +1,10 @@
 function solution(n,a,b)
 {
-    let [min,max] = [Math.min(a,b), Math.max(a,b)]
-    let bin = n
-    let fivot = bin
-    console.log(min, max)
-    do{
-        bin = bin >> 1
-        if(min > fivot) fivot += bin
-        else if(max <= fivot) fivot -= bin
-        else return bin.toString(2).split("").reverse().join("").indexOf("1") + 2
-    }while(1)
+    console.log(n.toString(2).length-1)
+    // 2의 진수 만큼 반복
+    for(let i=1;i<=n.toString(2).length-1;i++){
+        if(Math.abs((a + Math.pow(2, i)) - b) < 2) return i
+    }
+
+
 }
