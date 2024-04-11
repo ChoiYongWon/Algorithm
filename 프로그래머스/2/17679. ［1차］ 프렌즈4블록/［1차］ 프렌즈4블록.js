@@ -11,10 +11,13 @@ function solution(m, n, board) {
         return board_copy[r+1][c] == origin && board_copy[r][c+1] == origin && board_copy[r+1][c+1] == origin
     }
     
+    // 밑칸이 비어있으면 내려주는 함수
     function down(r, c){
         let count = 1;
         const value = board_copy[r][c]
         let [destR, destC] = [r, c]
+        
+        // 해당 블럭 밑에 최종 R 값
         while(true){
             if(destR+1 == m || board_copy[destR+1][destC]!=null) break;
             destR++
@@ -25,6 +28,7 @@ function solution(m, n, board) {
         }
     }
     
+    // 계속 탐색할지
     let keepSearch = true;
     
     while(keepSearch){
