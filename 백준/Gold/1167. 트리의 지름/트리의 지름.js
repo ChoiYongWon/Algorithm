@@ -1,3 +1,8 @@
+/*
+1. 임의의 정점으로부터 가장 먼 노드 (번호) 선택
+2. 선택한 노드로 부터 가장 먼 노드 거리 계산
+*/
+
 let input = require("fs").readFileSync(0, 'utf-8').toString().replace(/\r/g,"").trim().split("\n")
 
 let v_size = Number(input[0])
@@ -20,24 +25,24 @@ for(let i=0;i<edge_info.length;i++){
 }
 
 
-function farthest_node(from, to){
-    let result = [from, 0]
+function farthest_node(start){
+    let result = [start, 0] // [가장 먼 노드, 가장 먼 거리]
 
     function dfs(from, to, distance){
-        if(result[1] < distance) result = [to, distance]
+        if(result[1] < distance) result = [to, distance] // 최대값 갱신
         for(let i=0;i<v[to].length;i++){ // from과 연결되어있는 정점 순회
-            if(from != v[to][i]) {
+            if(from != v[to][i]) { // 이전 노드가 아닐 시 방문
                 dfs(to, v[to][i], Number(distance) + Number(e[to][v[to][i]]))
             }
         }
     }
 
-    dfs(from, to, 0)
+    dfs(start, start, 0)
     
     return result
 }
 
-const first = farthest_node(1, 1) // 임의의 정점에서 가장 먼 정점까지
-const second = farthest_node(first[0], first[0])
+const first = farthest_node(1) // 임의의 정점에서 가장 먼 정점까지
+const second = farthest_node(first[0])
 
 console.log(second[1])
